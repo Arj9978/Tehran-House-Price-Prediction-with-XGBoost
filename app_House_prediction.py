@@ -1,10 +1,13 @@
 # Import Libraries
-import streamlit as st
-from utils import PrepProcesor, columns 
+import joblib
+import sklearn
 
 import numpy as np
 import pandas as pd
-import joblib
+import streamlit as st
+
+from utils import PrepProcesor, columns 
+from sklearn.ensemble import GradientBoostingClassifier
 
 # Set custom CSS styles
 page_bg_img = '''
@@ -35,18 +38,22 @@ Address  = st.selectbox("Where is the House:", addresses)
 
 def predict(): 
     row = np.array([Area, Room, Parking, Warehouse, Elevator])
+    st.write(row)
     # Create a DataFrame with the row data and columns matching the training data
     X = pd.DataFrame([row], columns=['Area', 'Room', 'Parking', 'Warehouse', 'Elevator'])
-    
+    st.write(X)
     # Perform one-hot encoding for the address input
     address_dummy = pd.get_dummies([Address], columns=['Address'], prefix='', prefix_sep='')
-    
+
     # Align the address columns with the training data columns
     address_dummy = address_dummy.reindex(columns=addresses, fill_value=0)
-    
+
     # Concatenate the address columns with the input data
     X = pd.concat([X, address_dummy], axis=1)
-    
+    st.write(X)
+
+    X = np.array(X)
+    st.write(X)
     prediction = model.predict(X)
     st.write(prediction)
 
