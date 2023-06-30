@@ -38,10 +38,10 @@ Address  = st.selectbox("Where is the House:", addresses)
 
 def predict(): 
     row = np.array([Area, Room, Parking, Warehouse, Elevator])
-    st.write(row)
+
     # Create a DataFrame with the row data and columns matching the training data
     X = pd.DataFrame([row], columns=['Area', 'Room', 'Parking', 'Warehouse', 'Elevator'])
-    st.write(X)
+
     # Perform one-hot encoding for the address input
     address_dummy = pd.get_dummies([Address], columns=['Address'], prefix='', prefix_sep='')
 
@@ -55,6 +55,6 @@ def predict():
     X = np.array(X)
     st.write(X)
     prediction = model.predict(X)
-    st.write(prediction)
+    st.write('prediction': prediction)
 
 trigger = st.button('Predict', on_click=predict)
