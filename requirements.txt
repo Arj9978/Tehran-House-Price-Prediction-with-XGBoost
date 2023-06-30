@@ -22,6 +22,7 @@ kiwisolver==1.4.4
 MarkupSafe==2.1.1
 matplotlib==3.6.2
 numpy==1.23.5
+numba==0.48.0
 packaging==21.3
 pandas==1.5.2
 Pillow==9.3.0
@@ -55,5 +56,5 @@ urllib3==1.26.13
 validators==0.20.0
 watchdog==2.2.0
 wincertstore==0.2
-xgboost==1.5.0
+xgboost==1.0.2
 zipp==3.11.0
