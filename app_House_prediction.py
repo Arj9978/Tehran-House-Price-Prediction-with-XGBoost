@@ -55,6 +55,6 @@ def predict():
     X = np.array(X)
     st.write(X)
     prediction = model.predict(X)
-    st.write({prediction:,}")
+    st.write(f"Price: {prediction:,}")
 
 trigger = st.button('Predict', on_click=predict)
