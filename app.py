@@ -1,9 +1,10 @@
 # Import Libraries
-import joblib
+import streamlit as st
+from utils import PrepProcesor, columns 
 
 import numpy as np
 import pandas as pd
-import streamlit as st
+import joblib
 
 # Set custom CSS styles
 page_bg_img = '''
